@@ -32,11 +32,9 @@ String c;
 int d=0;
 String e=Edit1->Text;
 c="";
-
 if(Edit1->Text[1]=='+'){
 	Edit1->Text=Edit1->Text.Delete(1,1);
 }
-
 if ((Edit1->Text.Length()%2)>0){
  	Edit1->Text=Edit1->Text+"F";
  }
