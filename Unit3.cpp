@@ -19,10 +19,10 @@ __fastcall TForm3::TForm3(TComponent* Owner)
 void __fastcall TForm3::Button1Click(TObject *Sender)
 {
 if(Edit1->Text==""){
-	ShowMessage("Ââåäèòå íîìåð");
+	ShowMessage("Введите номер");
 }
 if(Memo1->Text==""){
-	ShowMessage("Ââåäèòå ñîîáùåíèå");
+	ShowMessage("Введите сообщение");
 }
 Edit2->Text="";
 Memo2->Text="";
@@ -76,10 +76,10 @@ Memo2->Clear();
 void __fastcall TForm3::Button2Click(TObject *Sender)
 {
 if(Edit1->Text==""){
-	ShowMessage("Ââåäèòå íîìåð");
+	ShowMessage("Введите номер");
 }
 if(Memo1->Text==""){
-	ShowMessage("Ââåäèòå ñîîáùåíèå");
+	ShowMessage("Введите сообщение");
 }
 String DecodeNumber;
 DecodeNumber="";
