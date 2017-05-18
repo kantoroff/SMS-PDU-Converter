@@ -18,13 +18,11 @@ __fastcall TForm3::TForm3(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall TForm3::Button1Click(TObject *Sender)
 {
-if(Edit1->Text=="")
-{
-ShowMessage("Ââåäèòå íîìåð");
+if(Edit1->Text==""){
+	ShowMessage("Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã­Ã®Ã¬Ã¥Ã°");
 }
-if(Memo1->Text=="")
-{
-ShowMessage("Ââåäèòå ñîîáùåíèå");
+if(Memo1->Text==""){
+	ShowMessage("Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã±Ã®Ã®Ã¡Ã¹Ã¥Ã­Ã¨Ã¥");
 }
 Edit2->Text="";
 Memo2->Text="";
@@ -35,20 +33,17 @@ int d=0;
 String e=Edit1->Text;
 c="";
 
-if(Edit1->Text[1]=='+')
-{
-Edit1->Text=Edit1->Text.Delete(1,1);
+if(Edit1->Text[1]=='+'){
+	Edit1->Text=Edit1->Text.Delete(1,1);
 }
 
-if ((Edit1->Text.Length()%2)>0)
- {
- Edit1->Text=Edit1->Text+"F";
+if ((Edit1->Text.Length()%2)>0){
+ 	Edit1->Text=Edit1->Text+"F";
  }
 int i=1;
-while(i<Edit1->Text.Length())
-{
-c=c+Edit1->Text[i+1]+Edit1->Text[i];
-i+=2;
+while(i<Edit1->Text.Length()){
+	c=c+Edit1->Text[i+1]+Edit1->Text[i];
+	i+=2;
 }
 Edit2->Text=c;
 
@@ -61,16 +56,15 @@ Edit2->Text="000100"+b+"91"+a;
 Edit1->Text=e;
 
 
-String soob=Memo1->Text;
+String Soobshenye=Memo1->Text;
 
 TBytes biti;
-biti = TEncoding::Unicode->GetBytes(soob);
-soob="";
-for(int i = 0; i < biti.Length; i+=2)
-{
-soob = soob + IntToHex(biti[i+1], 2) + "" + IntToHex(biti[i], 2);
+biti = TEncoding::Unicode->GetBytes(Soobshenye);
+Soobshenye="";
+for(int i = 0; i < biti.Length; i+=2){
+	Soobshenye = Soobshenye + IntToHex(biti[i+1], 2) + "" + IntToHex(biti[i], 2);
 }
-  Memo2->Lines->Add(Edit2->Text+"00"+"08"+"12"+soob);
+  Memo2->Lines->Add(Edit2->Text+"00"+"08"+"12"+Soobshenye);
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm3::FormCreate(TObject *Sender)
@@ -83,39 +77,29 @@ Memo2->Clear();
 
 void __fastcall TForm3::Button2Click(TObject *Sender)
 {
-if(Edit1->Text=="")
-{
-ShowMessage("Ââåäèòå íîìåð");
+if(Edit1->Text==""){
+	ShowMessage("Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã­Ã®Ã¬Ã¥Ã°");
 }
-if(Memo1->Text=="")
-{
-ShowMessage("Ââåäèòå ñîîáùåíèå");
+if(Memo1->Text==""){
+	ShowMessage("Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã±Ã®Ã®Ã¡Ã¹Ã¥Ã­Ã¨Ã¥");
 }
-String b;
-b="";
+String DecodeNumber;
+DecodeNumber="";
 String a=Edit1->Text;
 a=Edit1->Text.Delete(1,10);
 int i;
-for(i=1;i<a.Length();i++)
-{
-if((a[i]=='F')||(a[i]=='f'))
-{
-a=a.Delete(i,1);
-}
+for(i=1;i<a.Length();i++){
+	if((a[i]=='F')||(a[i]=='f'))
+	{
+	a=a.Delete(i,1);
+	}
 
 }
-
 i=1;
-while(i<a.Length())
-{
-b=b+a[i+1]+a[i];
-i+=2;
+while(i<a.Length()){
+	DecodeNumber=DecodeNumber+a[i+1]+a[i];
+	i+=2;
 }
-Edit2->Text=b;
-
-
-
+Edit2->Text=DecodeNumber;
 }
 //---------------------------------------------------------------------------
-
-
